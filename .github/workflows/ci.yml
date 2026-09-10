@@ -65,6 +65,12 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      # `format` existia no package.json e o CI nunca o executava: gate escrito,
+      # fiação nunca ligada. Num template isso se multiplica por cada repositório
+      # gerado, que nasce com um gate decorativo.
+      - name: Format
+        run: npm run format
+
       - name: Typecheck
         run: npm run typecheck
 

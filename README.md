@@ -54,15 +54,15 @@ step** — e sem mensagem no log que oriente.
 Zero steps, sozinho, não identifica nada: um job `skipped` pelo `if:` também
 reporta zero. **O separador é a conclusão**: `failure` em ~2 s é billing;
 `skipped` é o `if:`. Parece YAML quebrado, não é — a causa costuma vir na
-*annotation* do job, não no log. Não perca tempo procurando erro no workflow.
+_annotation_ do job, não no log. Não perca tempo procurando erro no workflow.
 
 Antes do primeiro push, defina duas **variáveis de repositório** (Settings →
 Secrets and variables → Actions → Variables) com **array JSON** de labels:
 
-| Variável           | Valor                              | Usada por                    |
-| ------------------ | ---------------------------------- | ---------------------------- |
-| `CI_RUNNER`        | `["self-hosted","desenrolai"]`     | job `ci`                     |
-| `CI_RUNNER_DOCKER` | `["self-hosted","docker-builder"]` | jobs que constroem a imagem  |
+| Variável           | Valor                              | Usada por                   |
+| ------------------ | ---------------------------------- | --------------------------- |
+| `CI_RUNNER`        | `["self-hosted","desenrolai"]`     | job `ci`                    |
+| `CI_RUNNER_DOCKER` | `["self-hosted","docker-builder"]` | jobs que constroem a imagem |
 
 ```bash
 gh variable set CI_RUNNER --body '["self-hosted","desenrolai"]'
